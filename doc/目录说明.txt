@@ -1,0 +1,11 @@
+你的Github仓库/
+├─ .github/
+│  └─ workflows/
+│     └─ generate-download-page.yml  # Actions工作流配置
+├─ scripts/
+│  └─ generate-download.js           # 核心生成脚本
+├─ download/
+│  ├─ doc/                           # 下载文件目录（拖入文件即可）
+│  │  ├─ 资料1.pdf
+│  │  └─ 资料2.md
+│  └─ download.html                  # Actions自动生成（无需手动创建）

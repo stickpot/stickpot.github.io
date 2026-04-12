@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>访问验证</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            background: #f5f7fa;
+            font-family: system-ui;
+            padding: 30px
+        }
+
+        .box {
+            max-width: 400px;
+            margin: 120px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .08)
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-bottom: 16px
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #2d8cf0;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>请输入密码</h2>
+    <input type="password" id="pwd" placeholder="输入密码">
+    <button onclick="go()">进入</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/crypto-js@4.2.0/crypto-js.min.js"></script>
+<script>
+    const encryptedUrl = "U2FsdGVkX19nKg0/6ZeaQkemQuuYb/qhYhZe8U67q6ThisuuC6SqJzu8CPTGES8o";
+
+    function go() {
+        const pwd = document.getElementById("pwd").value.trim();
+        try {
+            const key = CryptoJS.SHA256(pwd).toString();
+            const dec = CryptoJS.AES.decrypt(encryptedUrl, key);
+            const url = dec.toString(CryptoJS.enc.Utf8);
+            console.log(url);
+            if (url && (url.endsWith('jsp') || url.endsWith('php') || url.endsWith('ml') || url.endsWith('py') || url.endsWith('xlsx'))) {
+                document.location.href = url;
+            } else {
+                alert("密码错误");
+            }
+        } catch (e) {
+            alert("密码错误");
+        }
+    }
+</script>
+</body>
+</html>

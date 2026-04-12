@@ -1,0 +1,4 @@
+jre1.8.0_xxx\lib\security\java.policy中添加：
+permission java.util.PropertyPermission "*", "read,write";
+permission java.awt.AWTPermission "accessClipboard";
+permission java.lang.RuntimePermission "accessDeclaredMembers";

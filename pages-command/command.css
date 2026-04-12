@@ -1,0 +1,67 @@
+body{
+    font-family: Microsoft YaHei;
+    margin: 30px auto;
+    max-width: 800px;
+    line-height: 1.8;
+    background: #f8f9fa;
+}
+.page-title{
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+}
+.cmd-item{
+    margin: 20px 0;
+}
+.cmd-title{
+    font-weight: bold;
+    font-size: 16px;
+    color: #222;
+}
+.cmd-code{
+    background: #2d2d2d;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin: 8px 0;
+    font-family: Consolas, monospace;
+    position: relative;
+    cursor: text;
+}
+.copy-btn{
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    background: #5c5c5c;
+    color: #fff;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+.copy-btn:hover{
+    background: #777;
+}
+/* 返回按钮样式 - 底部居中 */
+.back-wrap {
+    text-align: center;
+    margin-top: 40px;
+}
+.back-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+.back-btn:hover {
+    background: #005cbf;
+}

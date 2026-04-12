@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Linux 常用命令</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+<body>
+<h1 class="page-title">Linux 常用命令手册</h1>
+<div id="command-container"></div>
+<div class="back-wrap">
+    <button class="back-btn" onclick="goBackHome()">返回</button>
+</div>
+<script src="command.js"></script>
+<script>
+    // 数据格式：[名称, 命令]
+    const data = [
+        ["查看内存", "free -h"],
+        ["查看磁盘", "df -h"],
+        ["查看CPU", "lscpu"],
+        ["查看年月日时分秒（yyyy-MM-dd HH:mm:ss）", "date \"+%Y-%m-%d %H:%M:%S\""],
+        ["递归创建多级目录", "sudo mkdir -p <目录路径>  #sudo mkdir -p /opt/mydata"],
+        ["递归设置目录权限", "sudo chmod -R <权限值> <目录路径>  #sudo chmod -R 755 /opt/mydata"]
+    ]
+    renderCommands(data);
+</script>
+</body>
+</html>

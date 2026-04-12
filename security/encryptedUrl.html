@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>encryptedUrl 生成工具</title>
+    <style>
+        *{box-sizing:border-box;font-family:Arial;margin:0;padding:0}
+        body{padding:30px;background:#f5f5f5}
+        .box{max-width:500px;margin:0 auto;background:white;padding:25px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+        h2{margin-bottom:20px;color:#333}
+        .item{margin-bottom:15px}
+        label{display:block;margin-bottom:6px;font-weight:bold}
+        input,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:14px}
+        button{background:#2d8cf0;color:white;border:none;padding:12px 20px;border-radius:6px;width:100%;font-size:16px;cursor:pointer;margin-top:10px}
+        button:hover{background:#1b79e0}
+        #result{margin-top:20px;padding:12px;background:#f0f7ff;border:1px solid #2d8cf0;border-radius:6px;word-break:break-all}
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.2.0/crypto-js.min.js"></script>
+
+    <div class="box">
+        <h2>encryptedUrl 加密生成器</h2>
+        <div class="item">
+            <label>设置密码（pwd）</label>
+            <input type="text" id="pwd" placeholder="例如：123456">
+        </div>
+        <div class="item">
+            <label>目标跳转URL</label>
+            <input type="text" id="url" value="test.php" placeholder="例如：test.php">
+        </div>
+        <button onclick="generate()">生成 encryptedUrl</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function generate() {
+            const pwd = document.getElementById('pwd').value.trim();
+            const url = document.getElementById('url').value.trim();
+            
+            if (!pwd || !url) {
+                alert('请填写密码和URL');
+                return;
+            }
+
+            // 加密逻辑（和你的下载页完全一致）
+            const key = CryptoJS.SHA256(pwd).toString();
+            const encryptedUrl = CryptoJS.AES.encrypt(url, key).toString();
+
+            // 显示结果
+            document.getElementById('result').innerHTML = 
+                '<strong>生成成功！</strong><br>' +
+                'encryptedUrl = <br>' + encryptedUrl;
+        }
+    </script>
+</body>
+</html>

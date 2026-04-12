@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Linux 常用命令</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+<body>
+<h1 class="page-title">Windows 常用命令</h1>
+<div class="cmd-spec">
+    <h5 style="margin:0; line-height:1.2; font-size:10px; font-weight:normal;">
+        命令行规范：<code>&lt;必填参数&gt;</code>需替换；<code>[可选参数]</code>可省略。
+    </h5>
+</div>
+<div id="command-container"></div>
+<div class="back-wrap">
+    <button class="back-btn" onclick="goBackHome()">返回</button>
+</div>
+<script src="command.js"></script>
+<script>
+    // 数据格式：[名称, 命令]
+    const data = [
+        ["查看内存频率（单位：MHz）", "wmic memorychip get speed"],
+        ["查看年月日时分秒（yyyy-MM-dd HH:mm:ss）", "echo %date:~0,4%-%date:~5,2%-%date:~8,2% %time:~0,8%"],
+        ["计算指定文件的 MD5 哈希值", "certutil -hashfile <文件路径> MD5"]
+    ]
+    renderCommands(data);
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+7z2501-x64.exe: 5d22e5d47698da4b1225c3231f28a838 
+常用网站.xlsx: 24377bf2292c12ac3d03cf1754a8c9c3 
+java\jre-8u231-windows-x64.exe: 3c214bbe4f1882ec68ff70a20e171260 
+科学上网\Clash4Windows.0.20.39.zip: 250936d3b4e97ec0800f6c59ae5c5a1a 
