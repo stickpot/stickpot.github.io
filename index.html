@@ -197,6 +197,8 @@
     </style>
     <!-- 引入图标库 -->
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.2.0/crypto-js.min.js"></script>
+    <script src="./security/security-tools.js"></script>
 </head>
 <body>
     <div class="container">
@@ -259,6 +261,23 @@
                     <div class="nav-item"><a href="https://www.deepmind.com/">DeepMind</a></div>
                     <div class="nav-item"><a href="https://claude.ai/">Claude</a></div>
                     <div class="nav-item"><a href="https://www.midjourney.com/">MidJourney</a></div>
+                </div>
+            </div>
+
+            <!-- 开发工具 -->
+            <div class="nav-card">
+                <div class="nav-title"><i class="fas fa-toolbox"></i>开发工具</div>
+                <div class="nav-list">
+                    <div class="nav-item"><a href="https://www.jetbrains.com/idea/">idea</a></div>
+                    <div class="nav-item"><a href="https://www.allroundautomations.com/registered-plsqldev/">plsqldev</a></div>
+                </div>
+            </div>
+
+            <div class="nav-card">
+                <div class="nav-title"><i class="fas fa-user-lock"></i>私人空间</div>
+                <div class="nav-list">
+                    <div class="nav-item"><a href="#" onclick="openPwdPopup('my'); return false;">my</a></div>
+                    <div class="nav-item"><a href="#" onclick="openPwdPopup('cherry'); return false;">cherry</a></div>
                 </div>
             </div>
 
