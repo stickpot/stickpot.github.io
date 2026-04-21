@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Linux 常用命令</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+<body>
+<h1 class="page-title">Oracle 常用命令</h1>
+<div id="command-container"></div>
+<div class="back-wrap">
+    <button class="back-btn" onclick="goBackHome()">返回</button>
+</div>
+<script src="command.js"></script>
+<script>
+    // 数据格式：[名称, 命令]
+    const data = [
+        ["expdp导出", "expdp TEST1/TEST1@192.168.111.111:1521/orclPDB1 schemas=TEST1 DIRECTORY=DATA_PUMP_DIR DUMPFILE=TEST1LOCAL20260101.dmp logfile=expdp20260101.log"],
+        ["impdp导入", "impdp SYSTEM/123456@192.168.111.111:1521/orclPDB1 file=TEST1LOCAL20260101.dmp REMAP_SCHEMA=TEST1:TEST1 logfile=impdp20260101.log full=y"],
+        ["查看数据库目录", "select * from dba_directories;"],
+        ["登录Oracle", "sqlplus 用户名/密码@//数据库IP:端口/服务名  #sqlplus TEST/TEST@//192.168.111.111:1521/orclPDB1"],
+        ["登录管理员", "sqlplus / as sysdba"],
+        ["创建用户", "create user 用户名 identified by 密码;"],
+        ["授权管理员权限", "grant dba to 用户名;"],
+        ["授权连接资源", "grant connect,resource to 用户名;"],
+        ["修改用户密码", "alter user 用户名 identified by 新密码;"],
+        ["删除用户及关联数据", "drop user 用户名 cascade;"],
+        ["锁定用户账号", "alter user 用户名 account lock;"],
+        ["解锁用户账号", "alter user 用户名 account unlock;"],
+        ["删除用户", "drop user 用户名 cascade;"],
+        ["查看数据库版本", "select * from v$version;"],
+        ["查看表空间", "select tablespace_name from dba_tablespaces;"],
+        ["查看会话连接", "select sid,serial#,username from v$session;"],
+        ["清空表数据(不可回滚)", "truncate table 表名;"],
+        ["查看用户表空间配额", "select * from dba_ts_quotas where username='用户名';"],
+        ["查看表空间使用情况", "select tablespace_name,sum(bytes)/1024/1024 MB from dba_data_files group by tablespace_name;"],
+        ["查看表空间路径", "select file_name, tablespace_name from dba_data_files;"],
+        ["杀死会话", "alter system kill session 'sid,serial#';"]
+    ]
+    renderCommands(data);
+</script>
+</body>
+</html>
